@@ -1,0 +1,22 @@
+package Task;
+
+import java.time.LocalTime;
+
+public class Task {
+    String description;
+    LocalTime startTime;
+    LocalTime endTime;
+    String priority;
+
+    public Task(String description, String startTime, String endTime, String priority) {
+        this.description = description;
+        this.startTime = LocalTime.parse(startTime);
+        this.endTime = LocalTime.parse(endTime);
+        this.priority = priority;
+    }
+
+    @Override
+    public String toString() {
+        return startTime + " - " + endTime + ": " + description + " [" + priority + "]";
+    }
+}
