@@ -1,0 +1,9 @@
+package com.example.structural.proxy;
+
+public class ProxyDemo {
+    public static void main(String[] args) {
+        Image img = new ImageProxy("mission.png");
+        img.display(); // loads then displays
+        img.display(); // directly displays (already loaded)
+    }
+}
