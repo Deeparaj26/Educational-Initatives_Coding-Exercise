@@ -1,0 +1,11 @@
+package com.example.structural.adapter;
+
+public class PaymentAdapter implements PaymentGateway {
+    private final LegacyPaymentSystem legacy = new LegacyPaymentSystem();
+
+    @Override
+    public void pay(double dollars) {
+        int cents = (int)(dollars * 100);
+        legacy.payInCents(cents);
+    }
+}
