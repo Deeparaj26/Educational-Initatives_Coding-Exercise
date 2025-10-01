@@ -1,0 +1,15 @@
+package com.example.creational.factory;
+
+public class Task {
+    private final String description;
+    private final String priority;
+
+    public Task(String description, String priority) {
+        this.description = description;
+        this.priority = priority;
+    }
+    @Override
+    public String toString() {
+        return description + " [" + priority + "]";
+    }
+}
