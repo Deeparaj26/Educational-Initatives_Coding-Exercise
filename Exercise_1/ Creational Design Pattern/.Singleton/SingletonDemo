@@ -1,0 +1,12 @@
+package com.example.creational.singleton;
+
+public class SingletonDemo {
+    public static void main(String[] args) {
+        ConfigurationManager c1 = ConfigurationManager.getInstance();
+        ConfigurationManager c2 = ConfigurationManager.getInstance();
+
+        c1.setAppName("MissionControl");
+        System.out.println(c2.getAppName()); // MissionControl
+        System.out.println(c1 == c2);        // true
+    }
+}
