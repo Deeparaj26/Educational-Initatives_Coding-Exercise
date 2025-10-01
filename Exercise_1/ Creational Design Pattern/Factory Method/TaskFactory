@@ -1,0 +1,10 @@
+package com.example.creational.factory;
+
+public class TaskFactory {
+    public static Task createTask(String desc, String priority) {
+        if (priority == null || priority.isBlank()) {
+            priority = "Medium";
+        }
+        return new Task(desc, priority);
+    }
+}
