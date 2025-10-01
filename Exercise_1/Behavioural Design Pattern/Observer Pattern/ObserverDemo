@@ -1,0 +1,16 @@
+package com.example.behavioral.observer;
+
+public class ObserverDemo {
+    public static void main(String[] args) {
+        NewsPublisher publisher = new NewsPublisher();
+
+        Subscriber email = new EmailSubscriber("astro@space.org");
+        Subscriber sms = new SmsSubscriber("+911234567890");
+
+        publisher.subscribe(email);
+        publisher.subscribe(sms);
+
+        publisher.publish("Docking completed at 07:12 UTC.");
+        publisher.publish("Next EVA scheduled for 10:00 UTC.");
+    }
+}
