@@ -1,0 +1,8 @@
+package com.example.structural.adapter;
+
+public class AdapterDemo {
+    public static void main(String[] args) {
+        PaymentGateway gateway = new PaymentAdapter();
+        gateway.pay(12.50); // Paid 1250 cents via Legacy System
+    }
+}
