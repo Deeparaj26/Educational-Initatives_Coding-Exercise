@@ -1,0 +1,11 @@
+package com.example.creational.factory;
+
+public class FactoryDemo {
+    public static void main(String[] args) {
+        Task t1 = TaskFactory.createTask("Morning Exercise", "High");
+        Task t2 = TaskFactory.createTask("Team Meeting", "Medium");
+
+        System.out.println(t1); // Morning Exercise [High]
+        System.out.println(t2); // Team Meeting [Medium]
+    }
+}
