@@ -1,0 +1,36 @@
+package Task;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+
+public class ScheduleManager {
+    private List<Task> tasks = new ArrayList<>();
+
+    public void addTask(Task task) {
+        for (Task t : tasks) {
+            if (!(task.endTime.isBefore(t.startTime) || task.startTime.isAfter(t.endTime))) {
+                System.out.println("Error: Task conflicts with \"" + t.description + "\"");
+                return;
+            }
+        }
+        tasks.add(task);
+        System.out.println("Task added successfully.");
+    }
+
+    public void removeTask(String description) {
+        boolean removed = tasks.removeIf(t -> t.description.equalsIgnoreCase(description));
+        if (removed) System.out.println("Task removed successfully.");
+        else System.out.println("Error: Task not found.");
+    }
+
+    public void viewTasks() {
+        if (tasks.isEmpty()) {
+            System.out.println("No tasks scheduled.");
+            return;
+        }
+        tasks.sort(Comparator.comparing(t -> t.startTime));
+        for (Task t : tasks) System.out.println(t);
+    }
+}
