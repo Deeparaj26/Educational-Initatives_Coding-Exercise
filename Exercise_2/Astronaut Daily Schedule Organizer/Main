@@ -1,0 +1,49 @@
+package Task;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        ScheduleManager manager = new ScheduleManager();
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("\n1. Add Task  2. Remove Task  3. View Tasks  4. Exit");
+            System.out.print("Enter choice: ");
+            int choice = sc.nextInt();
+            sc.nextLine();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Description: ");
+                    String desc = sc.nextLine();
+                    System.out.print("Start Time (HH:mm): ");
+                    String start = sc.nextLine();
+                    System.out.print("End Time (HH:mm): ");
+                    String end = sc.nextLine();
+                    System.out.print("Priority: ");
+                    String priority = sc.nextLine();
+                    try {
+                        manager.addTask(new Task(desc, start, end, priority));
+                    } catch (Exception e) {
+                        System.out.println("Error: Invalid time format.");
+                    }
+                    break;
+                case 2:
+                    System.out.print("Task description to remove: ");
+                    String rem = sc.nextLine();
+                    manager.removeTask(rem);
+                    break;
+                case 3:
+                    manager.viewTasks();
+                    break;
+                case 4:
+                    System.out.println("Exiting...");
+                    return;
+                default:
+                    System.out.println("Invalid choice.");
+            }
+        }
+    }
+}
+
